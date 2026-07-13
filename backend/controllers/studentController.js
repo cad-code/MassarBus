@@ -31,7 +31,22 @@ exports.getAllStudents = async (req, res) => {
       .populate('routeId')
       .populate('parentId', 'name email phone');
 
-    res.status(200).json(students);
+    const studentsWithStopDetails = students.map(student => {
+      const studentObj = student.toObject();
+
+      if (student.routeId && student.routeId.stops && student.pickupStopId) {
+        const matchingStop = student.routeId.stops.find(
+          stop => stop._id.toString() === student.pickupStopId.toString()
+        );
+        studentObj.pickupStop = matchingStop || null;
+      } else {
+        studentObj.pickupStop = null;
+      }
+
+      return studentObj;
+    });
+
+    res.status(200).json(studentsWithStopDetails);
   } catch (error) {
     res.status(500).json({ message: "Erreur serveur.", error: error.message });
   }
