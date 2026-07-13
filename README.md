@@ -1,4 +1,4 @@
-# 🚌 MassarBus - Smart School Bus Tracking & Management System
+#  MassarBus - Smart School Bus Tracking & Management System
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
@@ -8,9 +8,9 @@
 
 MassarBus est un écosystème logiciel complet (Web & Mobile) conçu pour digitaliser, sécuriser et optimiser la gestion du transport scolaire. Ce système interconnecté permet le suivi GPS des bus en temps réel, la communication instantanée avec les parents, et l'automatisation logistique pour l'administration.
 
-## ✨ Fonctionnalités Principales
+## Fonctionnalités Principales
 
-### 🛡️ 1. Dashboard d'Administration (Web)
+### 1. Dashboard d'Administration (Web)
 Interface centralisée pour la gestion complète de la flotte et des élèves.
 - **Suivi en temps réel :** Carte interactive (Leaflet) affichant la position GPS exacte des bus et leur vitesse.
 - **Génération CRON :** Automatisation quotidienne de l'affectation des chauffeurs et véhicules aux lignes.
@@ -18,14 +18,14 @@ Interface centralisée pour la gestion complète de la flotte et des élèves.
 - **Rapports Automatisés :** Génération de synthèses PDF/Excel des présences, absences et incidents de la journée.
 - **Gestion CRUD :** Administration complète des élèves, utilisateurs (chauffeurs/parents), lignes, arrêts et véhicules.
 
-### 👨‍👩‍👧‍👦 2. Application Parent (Mobile)
+### 2. Application Parent (Mobile)
 Application conçue pour offrir une tranquillité d'esprit totale aux parents.
 - **Tracking GPS :** Suivi en direct du bus scolaire de leurs enfants.
 - **Gestion des Absences :** Possibilité de signaler une absence en un clic, mettant instantanément à jour la liste du chauffeur.
 - **Notifications Push :** Alertes de proximité via Firebase (ex: "Le bus arrive dans 5 minutes").
 - **Historique :** Accès à l'historique complet des trajets (embarquement/débarquement).
 
-### 🚌 3. Application Chauffeur (Mobile)
+### 3. Application Chauffeur (Mobile)
 Outil d'assistance à la conduite et de pointage.
 - **Transmission GPS :** Envoi des coordonnées de localisation en arrière-plan via Socket.io.
 - **Feuille de Route Dynamique :** Affichage des arrêts et de la liste des élèves attendus.
@@ -33,7 +33,7 @@ Outil d'assistance à la conduite et de pointage.
 
 ---
 
-## 🛠️ Architecture & Stack Technique
+## Architecture & Stack Technique
 
 Le projet repose sur une architecture **Monorepo** divisée en trois composants majeurs :
 
