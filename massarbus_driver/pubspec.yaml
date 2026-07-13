@@ -1,0 +1,52 @@
+name: massarbus_driver
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # --- DÉPENDANCES MASSARBUS CHAUFFEUR ---
+  # Requêtes API (Login, récupération des trajets)
+  http: ^1.2.0
+  # Stockage local sécurisé (Sauvegarde du JWT massarbus_token)
+  shared_preferences: ^2.2.3
+  # WebSockets pour envoyer la position en direct au Dashboard
+  socket_io_client: ^2.0.3
+  # Accès aux capteurs GPS du smartphone
+  geolocator: ^11.0.1
+  marquee: ^2.2.3
+  slide_to_act: ^2.0.2
+  url_launcher: ^6.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+  # Package pour générer l'icône de l'application sur le téléphone
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+
+  # --- ASSETS MASSARBUS ---
+  # Déclaration des images et logos de l'application
+  assets:
+    - assets/logo.png
+
+# CONFIGURATION POUR GÉNÉRER L'ICÔNE 
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo-driver.png"
+  min_sdk_size: 21
