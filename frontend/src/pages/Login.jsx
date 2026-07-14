@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   
@@ -23,7 +24,7 @@ const Login = () => {
 
       if (loggedInRole && loggedInRole !== 'ADMIN') {
         if (logout) await logout(); 
-        setError("Accès refusé 🛑 : Interface strictement réservée aux administrateurs.");
+        setError("Accès refusé : Interface strictement réservée aux administrateurs.");
         setIsLoading(false);
         return; 
       }
@@ -41,22 +42,19 @@ const Login = () => {
       className="min-h-screen flex items-center justify-center p-4 selection:bg-amber-500 selection:text-slate-900 relative bg-cover bg-center bg-no-repeat"
       style={{ 
         fontFamily: "'Poppins', sans-serif",
-        backgroundImage: "url('/admin_bg.png')" // ✨ L'image de fond est chargée ici
+        backgroundImage: "url('/admin_bg.png')" 
       }}
     >
       
-      {/* ✨ OVERLAY : Un léger voile sombre et flou pour faire ressortir le formulaire */}
       <div className="absolute inset-0 bg-slate-950/40 pointer-events-none"></div>
 
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        // ✨ GLASSMORPHISM : On ajoute relative, z-10, bg-slate-900/90 et backdrop-blur-md
         className="relative z-10 w-full max-w-md bg-slate-900/90 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-700/50 border-t-4 border-t-amber-500 p-8 sm:p-10"
       >
         
-        {/* EN-TÊTE : LOGO ET TITRE */}
         <div className="text-center mb-8">
           
           <div className="flex justify-center -mt-6 mb-4 h-24 items-center overflow-visible">
@@ -79,7 +77,6 @@ const Login = () => {
           </p>
         </div>
 
-        {/* MESSAGE D'ERREUR */}
         {error && (
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
@@ -93,7 +90,6 @@ const Login = () => {
           </motion.div>
         )}
 
-        {/* FORMULAIRE CENTRAL */}
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
             <label className="block text-sm font-semibold text-slate-300 mb-2">
@@ -115,14 +111,32 @@ const Login = () => {
                 Mot de passe
               </label>
             </div>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full bg-slate-950/80 border border-slate-700/50 text-slate-100 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors placeholder-slate-600 font-medium"
-              placeholder="••••••••"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="w-full bg-slate-950/80 border border-slate-700/50 text-slate-100 rounded-lg px-4 py-3 pr-12 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors placeholder-slate-600 font-medium"
+                placeholder="••••••••"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-amber-500 transition-colors"
+              >
+                {showPassword ? (
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7a10.05 10.05 0 014.182-5.322m5.22-1.523A10.054 10.054 0 0112 5c4.478 0 8.268 2.943 9.542 7a10.021 10.021 0 01-4.12 5.2m-5.33-5.3a3 3 0 01-3-3m5.3 5.3l3-3m-3 3L9 10.5M3 3l18 18" />
+                  </svg>
+                )}
+              </button>
+            </div>
           </div>
 
           <button
