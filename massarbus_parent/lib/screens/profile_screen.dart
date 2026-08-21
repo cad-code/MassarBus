@@ -35,7 +35,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString('massarbus_token');
       
-      final String apiUrl = 'http://192.168.42.115:5000/api/users/profile'; 
+      final String apiUrl = 'http://192.169.1.31:5000/api/users/profile'; 
 
       final response = await http.get(
         Uri.parse(apiUrl),

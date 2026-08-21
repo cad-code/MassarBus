@@ -23,8 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
   List<dynamic> _children = [];
   int _selectedIndex = 0; 
 
-  final String apiUrl = 'http://192.168.42.115:5000/api/students/my-children';
-  final String baseUrl = 'http://192.168.42.115:5000/api'; 
+  final String apiUrl = 'http://192.169.1.31:5000/api/students/my-children';
+  final String baseUrl = 'http://192.169.1.31:5000/api'; 
 
   final Color accentOrange = const Color(0xFFF59E0B);
   final Color accentBlue = const Color(0xFF3B82F6);

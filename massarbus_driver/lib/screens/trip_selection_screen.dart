@@ -33,7 +33,7 @@ class _TripSelectionScreenState extends State<TripSelectionScreen> {
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString('massarbus_token');
 
-      final url = Uri.parse('http://192.168.42.115:5000/api/trips');
+      final url = Uri.parse('http://192.169.1.31:5000/api/trips');
       final response = await http.get(
         url,
         headers: {

@@ -16,7 +16,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
   bool _isLoading = true;
   List<dynamic> notifications = [];
 
-  final String baseUrl = 'http://192.168.42.115:5000/api'; 
+  final String baseUrl = 'http://192.169.1.31:5000/api'; 
 
   @override
   void initState() {

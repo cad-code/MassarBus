@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
     });
 
     try {
-      final url = Uri.parse('http://192.168.42.115:5000/api/auth/login');
+      final url = Uri.parse('http://192.169.1.31:5000/api/auth/login');
       
       final response = await http.post(
         url,

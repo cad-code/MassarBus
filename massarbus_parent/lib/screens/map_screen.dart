@@ -88,7 +88,7 @@ class _MapScreenState extends State<MapScreen> {
 
     if (token == null) return;
 
-    socket = IO.io('http://192.168.42.115:5000', <String, dynamic>{
+    socket = IO.io('http://192.169.1.31:5000', <String, dynamic>{
       'transports': ['websocket'],
       'autoConnect': false, 
       'auth': {

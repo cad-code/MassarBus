@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
   final Color accentOrange = const Color(0xFFF59E0B);
   final Color accentBlue = const Color(0xFF3B82F6);
 
-  final String apiUrl = 'http://192.168.42.115:5000/api/auth/login';
+  final String apiUrl = 'http://192.169.1.31:5000/api/auth/login';
 
   @override
   void initState() {

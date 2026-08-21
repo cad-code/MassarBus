@@ -125,7 +125,7 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
     final token = prefs.getString('massarbus_token');
     if (token == null) return;
 
-    final String serverUrl = 'http://192.168.42.115:5000'; // Ton IP confirmée
+    final String serverUrl = 'http://192.169.1.31:5000'; // Ton IP confirmée
 
     socket = IO.io(serverUrl, <String, dynamic>{
       'transports': ['websocket'],
@@ -188,7 +188,7 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
     try {
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString('massarbus_token');
-      final manifestUrl = Uri.parse('http://192.168.42.115:5000/api/trips/${widget.tripId}/manifest');
+      final manifestUrl = Uri.parse('http://192.169.1.31:5000/api/trips/${widget.tripId}/manifest');
       
       final response = await http.get(manifestUrl, headers: {
         'Content-Type': 'application/json',
@@ -301,7 +301,7 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
     try {
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString('massarbus_token');
-      final url = Uri.parse('http://192.168.42.115:5000/api/trips/${widget.tripId}/end');
+      final url = Uri.parse('http://192.169.1.31:5000/api/trips/${widget.tripId}/end');
 
       await http.put(url, headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer $token'});
 
@@ -323,7 +323,7 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
     try {
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString('massarbus_token');
-      final url = Uri.parse('http://192.168.42.115:5000/api/trips/${widget.tripId}/issue');
+      final url = Uri.parse('http://192.169.1.31:5000/api/trips/${widget.tripId}/issue');
       
       final response = await http.post(
         url,
