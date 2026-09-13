@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'home_screen.dart'; 
+import 'package:massarbus_parent/core/constants/api_constants.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -27,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
   final Color accentOrange = const Color(0xFFF59E0B);
   final Color accentBlue = const Color(0xFF3B82F6);
 
-  final String apiUrl = 'http://192.169.1.31:5000/api/auth/login';
+  final String apiUrl = '${ApiConstants.baseUrl}/auth/login';
 
   @override
   void initState() {

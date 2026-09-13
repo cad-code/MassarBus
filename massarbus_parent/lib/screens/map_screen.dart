@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:ui'; 
+import 'package:massarbus_parent/core/constants/api_constants.dart';
 
 class MapScreen extends StatefulWidget {
   final String studentId;
@@ -88,7 +89,7 @@ class _MapScreenState extends State<MapScreen> {
 
     if (token == null) return;
 
-    socket = IO.io('http://192.169.1.31:5000', <String, dynamic>{
+    socket = IO.io('${ApiConstants.socketUrl}', <String, dynamic>{
       'transports': ['websocket'],
       'autoConnect': false, 
       'auth': {
@@ -181,9 +182,28 @@ class _MapScreenState extends State<MapScreen> {
             ),
             children: [
               TileLayer(
-                urlTemplate: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-                subdomains: const ['a', 'b', 'c', 'd'],
+                // Lien OpenStreetMap 100% gratuit
+                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                 userAgentPackageName: 'com.massarbus.parent',
+                // Filtre noir/bleu foncé (bgDark) appliqué sur la carte claire pour recréer le mode "Dark"
+                tileBuilder: (context, tileWidget, tile) {
+                  return ColorFiltered(
+                    colorFilter: const ColorFilter.matrix([
+                      -1,  0,  0, 0, 255, // Rouge inversé
+                       0, -1,  0, 0, 255, // Vert inversé
+                       0,  0, -1, 0, 255, // Bleu inversé
+                       0,  0,  0, 1,   0, // Opacité
+                    ]),
+                    child: ColorFiltered(
+                      // Ajoute une légère teinte bleutée "bgDark" par-dessus
+                      colorFilter: ColorFilter.mode(
+                        const Color(0xFF0B1120).withOpacity(0.5), 
+                        BlendMode.darken
+                      ),
+                      child: tileWidget,
+                    ),
+                  );
+                },
               ),
               
               PolylineLayer(

@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'trip_selection_screen.dart';
+import 'package:massarbus_driver/core/constants/api_constants.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -57,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
     });
 
     try {
-      final url = Uri.parse('http://192.169.1.31:5000/api/auth/login');
+      final url = Uri.parse('${ApiConstants.baseUrl}/auth/login');
       
       final response = await http.post(
         url,

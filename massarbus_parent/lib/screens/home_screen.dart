@@ -10,6 +10,7 @@ import 'map_screen.dart';
 import 'notification_screen.dart'; 
 import 'history_screen.dart';
 import 'profile_screen.dart';
+import 'package:massarbus_parent/core/constants/api_constants.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,8 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
   List<dynamic> _children = [];
   int _selectedIndex = 0; 
 
-  final String apiUrl = 'http://192.169.1.31:5000/api/students/my-children';
-  final String baseUrl = 'http://192.169.1.31:5000/api'; 
+  final String apiUrl = '${ApiConstants.baseUrl}/students/my-children';
+  final String baseUrl = '${ApiConstants.baseUrl}'; 
 
   final Color accentOrange = const Color(0xFFF59E0B);
   final Color accentBlue = const Color(0xFF3B82F6);

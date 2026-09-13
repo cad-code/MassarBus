@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:geolocator/geolocator.dart'; 
 import 'package:url_launcher/url_launcher.dart'; 
+import 'package:massarbus_driver/core/constants/api_constants.dart';
 
 class StudentListScreen extends StatefulWidget {
   final String tripId;
@@ -60,7 +61,7 @@ class _StudentListScreenState extends State<StudentListScreen> {
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString('massarbus_token');
 
-      final url = Uri.parse('http://192.169.1.31:5000/api/trips/${widget.tripId}/manifest');
+      final url = Uri.parse('${ApiConstants.baseUrl}/trips/${widget.tripId}/manifest');
       
       final response = await http.get(
         url,
@@ -137,7 +138,7 @@ class _StudentListScreenState extends State<StudentListScreen> {
         print("GPS non disponible pour le pointage");
       }
 
-      final url = Uri.parse('http://192.169.1.31:5000/api/trips/${widget.tripId}/attendance');
+      final url = Uri.parse('${ApiConstants.baseUrl}/trips/${widget.tripId}/attendance');
       final response = await http.post(
         url,
         headers: {

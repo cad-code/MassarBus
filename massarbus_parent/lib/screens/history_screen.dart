@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'dart:ui'; 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intl/intl.dart'; 
+import 'package:massarbus_parent/core/constants/api_constants.dart';
 
 class HistoryScreen extends StatefulWidget {
   final String studentId;
@@ -20,7 +21,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
   bool _isLoading = true;
   List<dynamic> _history = [];
 
-  final String baseUrl = 'http://192.169.1.31:5000/api'; 
+  final String baseUrl = '${ApiConstants.baseUrl}'; 
 
   @override
   void initState() {

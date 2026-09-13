@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'login_screen.dart'; 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:massarbus_parent/core/constants/api_constants.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -35,7 +36,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString('massarbus_token');
       
-      final String apiUrl = 'http://192.169.1.31:5000/api/users/profile'; 
+      final String apiUrl = '${ApiConstants.baseUrl}/users/profile'; 
 
       final response = await http.get(
         Uri.parse(apiUrl),

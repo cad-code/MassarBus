@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dashboard_screen.dart';
+import 'package:massarbus_driver/core/constants/api_constants.dart';
 
 class TripSelectionScreen extends StatefulWidget {
   const TripSelectionScreen({super.key});
@@ -33,7 +34,7 @@ class _TripSelectionScreenState extends State<TripSelectionScreen> {
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString('massarbus_token');
 
-      final url = Uri.parse('http://192.169.1.31:5000/api/trips');
+      final url = Uri.parse('${ApiConstants.baseUrl}/trips');
       final response = await http.get(
         url,
         headers: {

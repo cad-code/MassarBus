@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:ui'; 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:massarbus_parent/core/constants/api_constants.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
   bool _isLoading = true;
   List<dynamic> notifications = [];
 
-  final String baseUrl = 'http://192.169.1.31:5000/api'; 
+  final String baseUrl = '${ApiConstants.baseUrl}'; 
 
   @override
   void initState() {

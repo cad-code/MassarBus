@@ -527,10 +527,15 @@ const VueGlobale = () => {
         </div>
 
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-2 overflow-hidden shadow-2xl relative z-0">
-          <MapContainer center={fesPosition} zoom={13} style={{ height: '550px', width: '100%', zIndex: 0 }} className="rounded-xl">
+          <MapContainer 
+            center={fesPosition} 
+            zoom={13} 
+            style={{ height: '550px', width: '100%', zIndex: 0, filter: "invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%)" }} 
+            className="rounded-xl"
+          >
             <TileLayer
-              attribution='&copy; OpenStreetMap'
-              url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
 
             {routesData.map((route) => route.stops.map((stop) => {
