@@ -2,7 +2,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api', 
+  // URL mise à jour avec le lien de production Suga
+  baseURL: 'https://tknf3fxjhomt-production-u9y7dfpb.us-central1.suga.run/api', 
   headers: {
     'Content-Type': 'application/json',
   },

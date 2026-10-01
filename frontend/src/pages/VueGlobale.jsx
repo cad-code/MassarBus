@@ -125,7 +125,7 @@ const VueGlobale = () => {
     const token = localStorage.getItem('massarbus_token');
     if (!token) return;
 
-    const socket = io('http://localhost:5000', { auth: { token } });
+    const socket = io('https://tknf3fxjhomt-production-u9y7dfpb.us-central1.suga.run', { auth: { token } });
     setSocketInstance(socket);
 
     socket.on('connect', () => {

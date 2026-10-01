@@ -86,7 +86,7 @@ io.on('connection', (socket) => {
   
   if (socket.user.role === 'ADMIN') {
     socket.join('admin_room');
-    console.log(`👑 L'Admin a rejoint le salon global (admin_room)`);
+    console.log(` L'Admin a rejoint le salon global (admin_room)`);
   }
 
   socket.on('join_trip', (tripId) => {
@@ -233,3 +233,5 @@ server.listen(PORT, () => {
   console.log(` Socket.io est sécurisé et prêt`);
   console.log(`=========================================`);
 });
+
+module.exports = app;
