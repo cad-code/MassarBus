@@ -534,9 +534,9 @@ const VueGlobale = () => {
             className="rounded-xl"
           >
             <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
 
             {routesData.map((route) => route.stops.map((stop) => {
               if (stop.location?.coordinates?.length === 2) {
