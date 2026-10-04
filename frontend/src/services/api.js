@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const api = axios.create({
   // URL mise à jour avec le lien de production Suga
-  baseURL: 'https://tknf3fxjhomt-production-u9y7dfpb.us-central1.suga.run/api', 
+  baseURL: 'https://qh7trlf0v0ip-production-u9y7dfpb.us-central1.suga.run/api', 
   headers: {
     'Content-Type': 'application/json',
   },
